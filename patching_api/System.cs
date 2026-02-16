@@ -2,13 +2,13 @@ namespace patching_api;
 
 public class System
 {
-    private string system_id;
+    public string system_id { get; private set; }
     public double uptime{ get; private set;}
     public string region{ get; private set;}
-    private DateTime last_patch;
+    public string last_patch { get; private set; }
     private int days_since;
     
-    public System(string system_id, double uptime, string region, DateTime last_patch)
+    public System(string system_id, double uptime, string region, string last_patch)
     {
         this.system_id = system_id;
         this.uptime = uptime;
@@ -18,7 +18,8 @@ public class System
 
     public void setDaysSince()
     {
-        this.days_since = (DateTime.Now - last_patch).Days;
+        var date = DateTime.Parse(this.last_patch);
+        this.days_since = (DateTime.Now - date).Days;
     }
     
 }
