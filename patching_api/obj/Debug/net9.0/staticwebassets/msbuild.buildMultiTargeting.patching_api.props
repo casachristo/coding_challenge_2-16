@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/patching_api.props" />
+</Project>
